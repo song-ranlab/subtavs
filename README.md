@@ -27,3 +27,4 @@ sudo apt-get install ros-melodic-navigation
 ##### 3b. Ouster OS-1 32 LiDAR (for final product)
 #### Follow the instructions for your given sensor products to ensure proper installation.
 #### This list doesn't include supplementary sensors such as back up cameras or motors/ motor controllers.
+#### The Sensors and Software folder contains various word documents which contains more details on where to find information on the sensors that were used and how to use them
