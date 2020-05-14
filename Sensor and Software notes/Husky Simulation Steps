@@ -1,0 +1,28 @@
+	Terminal One - To start Gazebo with Husky Robot
+roslaunch husky_gazebo husky_playpen.launch
+
+	Terminal Two - To start RVIZ
+roslaunch husky_viz view_robot.launch
+
+	Terminal Three - To start navigation function
+roslaunch husky_navigation exploration_demo.launch
+
+	Terminal Four - To save map after navigation is done
+rosrun map_server map_saver -f <name of map>
+
+	Terminal Five - To view camera data
+rosrun image_view image_view image:=/camera/rgb/image_raw
+
+	Terminal Six - To record video
+rosrun image_view video_recorder image:=/camera/rgb/image_raw
+
+
+
+
+	Localization
+roslaunch husky_navigation amcl_demo.launch
+	
+	Gmapping
+roslaunch husky_navigation gmapping_demo.launch
+
+

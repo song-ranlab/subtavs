@@ -1,0 +1,25 @@
+	Steps to run DARPA's testbed after it has been installed
+
+	First Terminal - To start testbed in Gazebo
+cd ~/subt_testbed
+./run.bash osrf/subt-virtual-testbed tunnel_circuit_practice.ign worldName:=tunnel_circuit_practice_01 robotName1:=X1 robotConfig1:=X1_SENSOR_CONFIG_1
+
+	Second Terminal - To start remote control with controller
+docker ps
+docker exec -it [container_ID] /bin/bash
+roslaunch subt_example teleop.launch
+
+	Fourth Terminal - (Experimental to try to fix odometry issue)
+rosrun tf static_transform_publisher 0 0 1 0 0 0 /X1/odom /X1 100
+
+	Fourth Terminal - To start Gmapping (experimental to try to get it to work, but it kept failing)
+rosrun gmapping slam_gmapping scan:=/X1/front_scan _base_frame:=/X1/base_link _odom_frame:=X1/odom map_frame:=/world _linearUpdate:=0.0 _angularUpdate:=0.0 _map_update_interval:=2.0
+
+	Fifth Terminal - To save map created by Gmapping
+rosrun map_server map_saver -f <name of map>
+
+
+
+Other world name to use: simple_tunnel_02.ign
+can find more in subt -> subt_ign -> worlds
+
